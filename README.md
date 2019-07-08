@@ -2,6 +2,15 @@
 
 Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/) et l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr). 
 
+
+## Lieu et date
+
+La formation aura lieue du mardi 9 juillet 10h00 (accueil à 9h30) au mercredi 10 juillet 16h30 à l'Institut Pasteur (salle de formation Yersin), 28 rue du docteur Roux, 75015 Paris.
+
+**Important : vous devez vous munir d'une pièce d'identité et passer impérativement par l'accueil à votre arrivée (prévoir au minimum 15 min d'avance).**
+
+
+
 ### Objectif
 
 L’objectif de la formation est de permettre l’acquisition des compétences permettant la programmation d’une application R-Shiny.
