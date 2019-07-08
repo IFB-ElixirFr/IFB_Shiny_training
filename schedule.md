@@ -16,6 +16,8 @@
 ## Mercredi 10 Juillet
 
 
+| De | à | Sujet | 
+|----------|--------|-------------------------------------------------------|
 | 8:30 | 9:30 | Bilan des évaluations des participants et discussions sur les points d'amélioration. |
 | 9:30 | 10:30 | Travail sur le matériel de cours (diapos, exercices) |
 | 10:30 | 10:45 | Pause |
