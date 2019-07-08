@@ -18,6 +18,8 @@ La formation s’organise en deux temps :
 - Premier jour : Formation au package R-Shiny et aux outils de base permettant de construire une application web et de déployer un serveur R-Shiny 
 - Deuxième jour : Construction de supports de formations et de matériel pédagogique partagés par les plateformes IFB sur le mode hackathon  
 
+Cliquez ici pour le **[Programme détaillé](schedule.md)**
+
 ### Prérequis
 
 la formation s’adresse à des bioinformaticiens et biostatisticiens connaissant les bases de la programmation en langage R. Des connaissances en manipulation de données et en web sont un plus.
