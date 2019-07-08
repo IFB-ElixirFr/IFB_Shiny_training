@@ -2,12 +2,37 @@
 
 Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/) et l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr). 
 
+### Objectif
+
+L’objectif de la formation est de permettre l’acquisition des compétences permettant la programmation d’une application R-Shiny.
+
+
+### Audience
+
+Cette formation s’adresse en priorité à des bioinformaticiens et biostatisticiens membres des plateformes régionales IFB qui pourront ensuite re-opérer cette formation localement aux équipes et utilisateurs intéressés (Formation de Formateurs sur le mode Train the Trainers).
+
+### Organisation
+
+La formation s’organise en deux temps :
+ 
+- Premier jour : Formation au package R-Shiny et aux outils de base permettant de construire une application web et de déployer un serveur R-Shiny 
+- Deuxième jour : Construction de supports de formations et de matériel pédagogique partagés par les plateformes IFB sur le mode hackathon  
+
+### Prérequis
+
+la formation s’adresse à des bioinformaticiens et biostatisticiens connaissant les bases de la programmation en langage R. Des connaissances en manipulation de données et en web sont un plus.
+
+La formation est gratuite, seuls les frais de déplacement sont à la charge des participants. 
+
+Important : si vous souhaitez assister uniquement au premier jour de la formation, merci de nous indiquer cette information en commentaire dans le formulaire d’inscription.  
+
 ### Organisateurs
  
- - Frédéric Shütz
- - Christophe Malabat
- - Hélène Chiapello
- - Cédric Midoux
+- IFB : Hélène Chiapello, Yoursra Mahmah
+- Hub de Bioinformatique et Biostatistique : Christophe Malabat
+- Plateforme Migale : Cédric Midoux
+- SIB :  Frédéric Schütz
+ 
 
 
 
