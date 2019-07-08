@@ -5,7 +5,7 @@ Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)
 
 ## Lieu et date
 
-La formation aura lieue du mardi 9 juillet 10h00 (accueil à 9h30) au mercredi 10 juillet 16h30 à l'Institut Pasteur (salle de formation Yersin), [28 rue du docteur Roux, 75015 Paris](https://goo.gl/maps/jqzqS84cDSLY4CVEA).
+La formation aura lieue du mardi 9 juillet 10h00 (accueil à 9h30) au mercredi 10 juillet 16h30 à l'[Institut Pasteur](https://www.pasteur.fr/fr) (salle de formation Yersin), [28 rue du docteur Roux, 75015 Paris](https://goo.gl/maps/jqzqS84cDSLY4CVEA).
 
 **Important : vous devez vous munir d'une pièce d'identité et passer impérativement par l'accueil à votre arrivée (prévoir au minimum 15 min d'avance).**
 
