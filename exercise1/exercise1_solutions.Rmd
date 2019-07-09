@@ -118,6 +118,15 @@ Change the application app1 to add some text as a response from server.
 
 Solution: [app3.R](app3.R)
 
+## 4. Mean and standard deviation
+
+Change app1 so that
+
+- The user can enter different values for the mean and standard deviation. 
+- The mean and standard deviation are shown in the mainPanel.
+- The user can enter a title for the histogram.
+
+Solution: [app4.R](app4.R)
 
 
 

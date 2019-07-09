@@ -27,7 +27,7 @@ server <- function(input, output) {
   })
 
   output$hello <- renderText({
-    "Hello world!"
+    "Random histogram"
   })
   output$params <- renderText({
     paste0("Parameters: ",
