@@ -73,6 +73,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+## Introduction
+
+Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement. 
+
+A chaque étape, on ajoute un élément d'interactivité.
+
+Les solutions sont fournies dans des fichiers séparés (app1.R, app2.R, ...). Pour les exécuter, il suffit d'ouvrir le fichier app[#].R dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
+
 ## 1. Starting application
 
 Copy, debug and run the first application (app1) presented today.
@@ -157,6 +165,22 @@ An ugly feature of our app: the input field Number of bins only makes sense for 
 
 
 Solution: [app7.R](app7.R)
+
+## 8. Predefined data sets
+
+Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
+
+```{r eval=FALSE}
+if(input$dataset=="Newcomb's Speed of Light") {
+
+            source("newcomb.R")
+
+            return(newcomb)
+}
+```
+ 
+**Your turn: Read the 3 data sets available on github**
+
 
 
 

@@ -17,7 +17,8 @@ ui <- fluidPage(
                      "Boxplot" = "boxplot")),
       
       
-      # Only show this panel if the plot type is a histogram
+      # Only show the option "Number of bins" if the plot type is a histogram,
+      # since this parameter makes no sense for the other plot type (boxplot)
       conditionalPanel(
         condition = "input.plotType == 'hist'",
         numericInput(inputId = "bins",

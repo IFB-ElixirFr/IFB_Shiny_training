@@ -396,6 +396,12 @@ div.tocify {
 </div>
 
 
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement.</p>
+<p>A chaque étape, on ajoute un élément d’interactivité.</p>
+<p>Les solutions sont fournies dans des fichiers séparés (app1.R, app2.R, …). Pour les exécuter, il suffit d’ouvrir le fichier app[#].R dans RStudio et de cliquer le biouton <strong>Run App</strong> qui apparaît dans le coin supérieur droit de l’éditeur de code.</p>
+</div>
 <div id="starting-application" class="section level2">
 <h2>1. Starting application</h2>
 <p>Copy, debug and run the first application (app1) presented today.</p>
@@ -462,6 +468,17 @@ div.tocify {
 <p>An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.</p>
 <p><strong>Hint:</strong> <code>conditionalPanel()</code></p>
 <p>Solution: <a href="app7.R">app7.R</a></p>
+</div>
+<div id="predefined-data-sets" class="section level2">
+<h2>8. Predefined data sets</h2>
+<p>Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span>(input<span class="op">$</span>dataset<span class="op">==</span><span class="st">&quot;Newcomb&#39;s Speed of Light&quot;</span>) {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">            <span class="kw">source</span>(<span class="st">&quot;newcomb.R&quot;</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">            <span class="kw">return</span>(newcomb)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">}</a></code></pre></div>
+<p><strong>Your turn: Read the 3 data sets available on github</strong></p>
 </div>
 
 
