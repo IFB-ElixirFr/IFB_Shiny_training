@@ -2,6 +2,13 @@
 
 Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/) et l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr). 
 
+## Matériel de cours
+
+### Diapositives
+
+- [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shü
+tz)
+
 
 ## Lieu et date
 
