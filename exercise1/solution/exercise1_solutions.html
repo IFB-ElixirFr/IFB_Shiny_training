@@ -480,6 +480,74 @@ div.tocify {
 <a class="sourceLine" id="cb3-6" data-line-number="6">}</a></code></pre></div>
 <p><strong>Your turn: Read the 3 data sets available on github</strong></p>
 </div>
+<div id="file-upload" class="section level2">
+<h2>9. File upload</h2>
+<p>Let the user upload a dataset(a file containing one value per row, no headers) for display.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">...</span> (manque le début)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  data &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">      inFile &lt;-<span class="st"> </span>input<span class="op">$</span>file</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">      </a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">      <span class="cf">if</span> (<span class="kw">is.null</span>(inFile)) {</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">        x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(input<span class="op">$</span>n)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">      } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">        </a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">        x &lt;-<span class="st"> </span><span class="kw">read.csv</span>(inFile<span class="op">$</span>datapath)[,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">      }</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">      <span class="kw">return</span>(x)</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  })</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">}</a></code></pre></div>
+</div>
+<div id="summary-statistics" class="section level2">
+<h2>10. Summary statistics:</h2>
+<p>In the text area we want a table of summary statistics. The idea here is to use R syntax to create a character vector which has the lines of the HTML code.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">output<span class="op">$</span>text &lt;-<span class="st"> </span><span class="kw">renderText</span>({</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  x &lt;-<span class="st"> </span><span class="kw">data</span>()</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  line &lt;-<span class="st"> &quot;&lt;table border=1&gt;&quot;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  line[<span class="dv">2</span>] &lt;-<span class="st"> &quot;&lt;tr&gt;&lt;th&gt;Sample Size&lt;/th&gt;&quot;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  ...</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  line[<span class="dv">4</span>] &lt;-<span class="st"> &quot;&lt;/table&gt;&quot;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  line</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">})</a></code></pre></div>
+<p><strong>Alternatives:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Générer une table R et ensuite générer du code HTML avec kable</li>
+<li>Utiliser renderDataTable(). C’est l’exercice suivant.</li>
+</ol>
+</div>
+<div id="table-presentations" class="section level2">
+<h2>11. Table presentations</h2>
+<p>These tables rarely look very good. To change their appearance we need to use cascading style files. The easiest way is to include that in the ui.R.</p>
+<p>Les fonctions d’output <code>renderDataTable()</code> et `dataTableOutput() permettent d’afficher une table.</p>
+<p>Note: ceci fait appel au package <code>dt</code> qui gère les tableaux de données.</p>
+</div>
+<div id="several-panels" class="section level2">
+<h2>12. Several panels</h2>
+<p>Often it is a good idea to have several panels to show different things. Say we want to separate the text from the graph.</p>
+</div>
+<div id="graph-displays" class="section level2">
+<h2>13. Graph displays</h2>
+<p>Again there are items on the left that only make sense for the graphs, so they should only appear when the Graph panel is selected. Again conditionalPanel to the rescue!</p>
+</div>
+<div id="animation" class="section level2">
+<h2>14. Animation</h2>
+<p>When generating random data we might want to do this a number of times. Slowly, so one can watch the changes.</p>
+<p>On ui side use :</p>
+<pre><code>sliderInput(&quot;k&quot;,&quot;Repeat!&quot;,min=1, max=10, value=0,step=1,
+                animate=animationOptions(interval = 500,playButton=&quot;Go!&quot;)
+         )</code></pre>
+<p>on server side use:</p>
+<pre><code>if(input$dataset==&quot;Random&quot;) {
+            for(i in 1:input$k) mu&lt;-input$mu
+            return(rnorm(input$n,input$mu,input$sig))
+        } </code></pre>
+</div>
+<div id="use-the-gglot2-library" class="section level2">
+<h2>14. Use the gglot2 library</h2>
+<p>Now let us draw the graphs with ggplot2. For this purpose, you must add require(ggplot2) on server side and change the render plot function call for histogram and boxplot.</p>
+<p>=========</p>
+</div>
 
 
 
