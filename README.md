@@ -41,8 +41,8 @@ Cliquez ici pour le **[Programme détaillé](schedule.md)**
 ## Organisateurs
  
 - IFB : Hélène Chiapello, Yoursra Mahmah
-- Hub de Bioinformatique et Biostatistique : Christophe Malabat
-- Plateforme Migale : Cédric Midoux
+- Hub de Bioinformatique et Biostatistique de l'I. Pasteur : Christophe Malabat
+- Plateforme Migale de L'Inra : Cédric Midoux
 - SIB :  Frédéric Schütz
  
 
