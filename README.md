@@ -8,6 +8,11 @@ Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)
 
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
 
+### Exercices
+
+- [Exercice 1 : build and run](exercise1)
+- [Solutions de l'exercice 1 : build and run](exercise1/solution/exercise1_solutions.html)
+
 ### Documents
 
 - [R Shiny cheat sheet](Shiny_cheatsheet.pdf)
