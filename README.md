@@ -6,8 +6,7 @@ Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)
 
 ### Diapositives
 
-- [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shü
-tz)
+- [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
 
 
 ## Lieu et date
