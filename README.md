@@ -45,8 +45,8 @@ Cliquez ici pour le **[Programme détaillé](schedule.md)**
 - Plateforme Migale de l'Inra : Cédric Midoux
 - SIB :  Frédéric Schütz
  
+## Liens utiles 
 
-
-
+- [The Shiny cheat sheet](https://shiny.rstudio.com/articles/cheatsheet.html)
 
 
