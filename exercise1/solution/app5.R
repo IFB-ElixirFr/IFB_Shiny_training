@@ -14,6 +14,10 @@ ui <- fluidPage(
       numericInput(inputId = "bins",
                    label = "Number of bins",
                    value = 25),
+      radioButtons("plottype", "Plot type:",
+                   c("Histogram" = "hist",
+                     "Boxplot" = "boxplot")),
+      
       textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution")
       ),  
     mainPanel(
@@ -36,8 +40,13 @@ server <- function(input, output) {
     paste0("sd = ", input$sd)
   })
   output$plot <- renderPlot({
-    hist(data(), input$bins, xlab = "x", main = input$main); 
-    abline(v = input$mean, col = "blue", lwd = 2)
+    if (input$plottype == "hist") {
+      hist(data(), input$bins, xlab = "x", main = input$main); 
+      abline(v = input$mean, col = "blue", lwd = 2)
+      
+    } else if (input$plottype == "boxplot") {
+      boxplot(data(), xlab = "x", main = input$main)
+    }
   })
   
   
