@@ -27,27 +27,28 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-2. Bin numbers: Change the application app1 to allow the user to enter
+2. **Bin numbers**: Change the application app1 to allow the user to enter
 the numbers of bins when plotting the histogram
 
-3. Server response: Change the application app1 to add some text as a
-response from server
+3. **Server response**: Change the application app1 to add some text as a
+response from server (make sure the text depends on the dataset; for
+example, include the average of the data points)
 
-4. Mean and Stdv: Change app1 so that
+4. **Mean and standard deviation**: Change app1 so that
 
     - The user can enter different values for the mean and standard deviation. 
     - The mean and standard deviation are shown in the mainPanel.
     - The user can enter a title for the histogram.
 
-5. Different displays: Change app1 so that the user can choose to do a
+5. **Different displays**: Change app1 so that the user can choose to do a
 histogram or a boxplot
 
-6. Do it the way you want it: Just about anything can be made to look
+6. **Do it the way you want it**: Just about anything can be made to look
 the way you want it.
 
-    - change the size of the sidebar (,width=3)
-    - Change the aspect ratio of the graph plotOutput("plot", width =
-"500px", height = "500px")
+    - change the size of the sidebar: (,width=3)
+    - Change the aspect ratio of the graph:
+      plotOutput("plot", width="500px", height = "500px")
 
 7. Panel appears and disappears:
 
@@ -76,8 +77,7 @@ if(input$dataset=="Newcomb's Speed of Light") {
 }
 ```
  
-Your turn: Read the 3 data sets available on Moodle
-
+Your turn: Read the 3 data sets available on github
  
 
 9. Summary statistics:
@@ -125,7 +125,7 @@ if(input$dataset=="Random") {
         } 
 ```
 
-14. Use gglot2 library: Now let us draw the graphs with ggplot2. For
+14. Use the gglot2 library: Now let us draw the graphs with ggplot2. For
 this purpose, you must add require(ggplot2) on server side and change
 the render plot function call for histogram and boxplot.
 
