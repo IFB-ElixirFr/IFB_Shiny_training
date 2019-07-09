@@ -2,6 +2,12 @@
 
 Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/) et l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr). 
 
+## Matériel de cours
+
+### Diapositives
+
+- [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
+
 
 ## Lieu et date
 
@@ -41,12 +47,12 @@ Cliquez ici pour le **[Programme détaillé](schedule.md)**
 ## Organisateurs
  
 - IFB : Hélène Chiapello, Yoursra Mahmah
-- Hub de Bioinformatique et Biostatistique : Christophe Malabat
-- Plateforme Migale : Cédric Midoux
+- Hub de Bioinformatique et Biostatistique de l'I. Pasteur : Christophe Malabat
+- Plateforme Migale de l'Inra : Cédric Midoux
 - SIB :  Frédéric Schütz
  
+## Liens utiles 
 
-
-
-
+- [The Shiny cheat sheet](https://shiny.rstudio.com/articles/cheatsheet.html)
+- [Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html)
 
