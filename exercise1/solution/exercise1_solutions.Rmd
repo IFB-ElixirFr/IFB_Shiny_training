@@ -128,6 +128,23 @@ Change app1 so that
 
 Solution: [app4.R](app4.R)
 
+## 5. Alternative displays
+
+Change app1 so that the user can choose to do a
+histogram or a boxplot
+
+## 6. Do it the way you want it
+
+Just about anything can be made to look the way you want it.
+
+- change the size of the sidebar: (,width=3)
+- Change the aspect ratio of the graph:
+
+```{r eval=FALSE}
+plotOutput("plot", width = "500px", height = "500px")
+```
+
+
 
 
 
