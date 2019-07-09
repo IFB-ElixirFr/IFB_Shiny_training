@@ -80,10 +80,10 @@ if(input$dataset=="Newcomb's Speed of Light") {
 Your turn: Read the 3 data sets available on github
 
 
-8b. Let the user upload a dataset (a file containing one value per row,
+9. Let the user upload a dataset (a file containing one value per row,
 no headers) for display.
 
-9. Summary statistics:
+10. Summary statistics:
 
     In the text area we want a table of summary statistics.
 
@@ -91,24 +91,24 @@ no headers) for display.
 has the lines of the HTML code.
 
 
-10. Table presentations: These tables rarely look very good. To change
+11. Table presentations: These tables rarely look very good. To change
 their appearance we need to use cascading style files. The easiest way
 is to include that in the ui.R.
 
 
-11. Several panels: Often it is a good idea to have several panels to
+12. Several panels: Often it is a good idea to have several panels to
 show different things. Say we want to separate the text from the
 graph.
 
  
 
-12. Graph displays: Again there are items on the left that only make
+13. Graph displays: Again there are items on the left that only make
 sense for the graphs, so they should only appear when the Graph panel
 is selected. Again conditionalPanel to the rescue!
 
  
 
-13. Animation: When generating random data we might want to do this a
+14. Animation: When generating random data we might want to do this a
 number of times. Slowly, so one can watch the changes.
 
 On ui side use :
