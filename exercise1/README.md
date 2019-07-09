@@ -78,7 +78,10 @@ if(input$dataset=="Newcomb's Speed of Light") {
 ```
  
 Your turn: Read the 3 data sets available on github
- 
+
+
+8b. Let the user upload a dataset (a file containing one value per row,
+no headers) for display.
 
 9. Summary statistics:
 
