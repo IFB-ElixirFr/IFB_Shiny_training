@@ -48,5 +48,5 @@ Cliquez ici pour le **[Programme détaillé](schedule.md)**
 ## Liens utiles 
 
 - [The Shiny cheat sheet](https://shiny.rstudio.com/articles/cheatsheet.html)
-
+- [Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html)
 
