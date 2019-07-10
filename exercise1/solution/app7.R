@@ -2,6 +2,8 @@ ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic  Histogram"),
   sidebarLayout(
     sidebarPanel(
+      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),
+      
       numericInput(inputId = "mean",
                    label = "Mean",
                    value = 5), 
@@ -24,9 +26,8 @@ ui <- fluidPage(
         numericInput(inputId = "bins",
                      label = "Number of bins",
                      value = 25)        
-      ),
+      )
       
-      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution")
       ),  
     mainPanel(
       textOutput("mean"),
