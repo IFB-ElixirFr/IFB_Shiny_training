@@ -11,7 +11,6 @@
 
 <meta name="author" content="Jacques van Helden" />
 
-<meta name="date" content="2019-07-11" />
 
 <title>RShiny Exercise 1 - Solutions</title>
 
@@ -389,13 +388,14 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">RShiny Exercise 1 - Solutions</h1>
-<h3 class="subtitle">Diplôme Interuniversitaire en Bioinformatique intégrative (DU-Bii 2019)</h3>
+<h3 class="subtitle">Formation Shiny à l’Institut Pasteur, 9-10 juillet 2019</h3>
 <h4 class="author">Jacques van Helden</h4>
-<h4 class="date">2019-07-11</h4>
+<h4 class="date">Last update: 2019-07-11</h4>
 
 </div>
 
 
+<hr />
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement.</p>
@@ -409,6 +409,7 @@ div.tocify {
 </ul>
 <p>Pour les exécuter, il suffit d’ouvrir le fichier <code>app[#]/app.R</code> dans RStudio et de cliquer le biouton <strong>Run App</strong> qui apparaît dans le coin supérieur droit de l’éditeur de code.</p>
 <p>Attention, le nom du script R <code>app.R</code> est important pour faciliter le déploiement de l’application sur un serveur Shiny.</p>
+<hr />
 </div>
 <div id="starting-application" class="section level2">
 <h2>1. Starting application</h2>
@@ -435,16 +436,19 @@ div.tocify {
 <a class="sourceLine" id="cb1-20" data-line-number="20">}</a>
 <a class="sourceLine" id="cb1-21" data-line-number="21"><span class="kw">shinyApp</span>(<span class="dt">ui =</span> ui, <span class="dt">server =</span> server)</a></code></pre></div>
 <p>Solution: <a href="app1/app1.R">app1/app1.R</a></p>
+<hr />
 </div>
 <div id="bin-numbers" class="section level2">
 <h2>2. Bin numbers</h2>
 <p>Change the application app1 to allow the user to enter the numbers of bins when plotting the histogram</p>
 <p>Solution: <a href="app2/app.R">app2/app.R</a></p>
+<hr />
 </div>
 <div id="server-response" class="section level2">
 <h2>3. Server response</h2>
 <p>Change the application app1 to add some text as a response from server.</p>
 <p>Solution: <a href="app3/app.R">app3/app.R</a></p>
+<hr />
 </div>
 <div id="mean-and-standard-deviation" class="section level2">
 <h2>4. Mean and standard deviation</h2>
@@ -455,11 +459,13 @@ div.tocify {
 <li>The user can enter a title for the histogram.</li>
 </ul>
 <p>Solution: <a href="app4/app.R">app4/app.R</a></p>
+<hr />
 </div>
 <div id="alternative-displays" class="section level2">
 <h2>5. Alternative displays</h2>
 <p>Change app1 so that the user can choose to do a histogram or a boxplot</p>
 <p>Solution: <a href="app5/app.R">app5/app.R</a></p>
+<hr />
 </div>
 <div id="do-it-the-way-you-want-it" class="section level2">
 <h2>6. Do it the way you want it</h2>
@@ -470,12 +476,14 @@ div.tocify {
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">plotOutput</span>(<span class="st">&quot;plot&quot;</span>, <span class="dt">width =</span> <span class="st">&quot;500px&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;500px&quot;</span>)</a></code></pre></div>
 <p>Solution: <a href="app6/app.R">app6/app.R</a></p>
+<hr />
 </div>
 <div id="panel-appears-and-disappears" class="section level2">
 <h2>7. Panel appears and disappears:</h2>
 <p>An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.</p>
 <p><strong>Hint:</strong> <code>conditionalPanel()</code></p>
 <p>Solution: <a href="app7/app.R">app7/app.R</a></p>
+<hr />
 </div>
 <div id="predefined-data-sets" class="section level2">
 <h2>8. Predefined data sets</h2>
@@ -486,6 +494,7 @@ div.tocify {
 <a class="sourceLine" id="cb3-4" data-line-number="4">}</a></code></pre></div>
 <p><strong>Your turn: Read the 3 data sets available on github</strong></p>
 <p>Solution: <a href="app8/app.R">app8/app.R</a></p>
+<hr />
 </div>
 <div id="file-upload" class="section level2">
 <h2>9. File upload</h2>
@@ -505,6 +514,7 @@ div.tocify {
 <a class="sourceLine" id="cb4-13" data-line-number="13">      <span class="kw">return</span>(x)</a>
 <a class="sourceLine" id="cb4-14" data-line-number="14">  })</a>
 <a class="sourceLine" id="cb4-15" data-line-number="15">}</a></code></pre></div>
+<hr />
 </div>
 <div id="summary-statistics" class="section level2">
 <h2>10. Summary statistics</h2>
@@ -522,12 +532,14 @@ div.tocify {
 <li>Générer une table R et ensuite générer du code HTML avec kable</li>
 <li>Utiliser renderDataTable(). C’est l’exercice suivant.</li>
 </ol>
+<hr />
 </div>
 <div id="table-presentations" class="section level2">
 <h2>11. Table presentations</h2>
 <p>These tables rarely look very good. To change their appearance we need to use cascading style files. The easiest way is to include that in the ui.R.</p>
 <p>Les fonctions d’output <code>renderDataTable()</code> et `dataTableOutput() permettent d’afficher une table.</p>
 <p>Note: ceci fait appel au package <code>dt</code> qui gère les tableaux de données.</p>
+<hr />
 </div>
 <div id="several-panels" class="section level2">
 <h2>12. Several panels</h2>
@@ -538,10 +550,12 @@ div.tocify {
 <a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="kw">...</span> (missing part)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">  )</a>
 <a class="sourceLine" id="cb6-6" data-line-number="6">)</a></code></pre></div>
+<hr />
 </div>
 <div id="graph-displays" class="section level2">
 <h2>13. Graph displays</h2>
 <p>Again there are items on the left that only make sense for the graphs, so they should only appear when the Graph panel is selected. Again conditionalPanel to the rescue!</p>
+<hr />
 </div>
 <div id="animation" class="section level2">
 <h2>14. Animation</h2>
@@ -557,11 +571,12 @@ div.tocify {
 <a class="sourceLine" id="cb8-4" data-line-number="4">  }</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="kw">return</span>(<span class="kw">rnorm</span>(input<span class="op">$</span>n,input<span class="op">$</span>mu,input<span class="op">$</span>sig))</a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">} </a></code></pre></div>
+<hr />
 </div>
 <div id="use-the-gglot2-library" class="section level2">
 <h2>15. Use the gglot2 library</h2>
 <p>Now let us draw the graphs with ggplot2. For this purpose, you must add require(ggplot2) on server side and change the render plot function call for histogram and boxplot.</p>
-<p>=========</p>
+<hr />
 </div>
 
 

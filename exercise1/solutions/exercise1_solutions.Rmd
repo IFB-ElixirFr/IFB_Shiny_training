@@ -1,7 +1,7 @@
 ---
 title: "RShiny Exercise 1 - Solutions"
 author: "Jacques van Helden"
-date: '`r Sys.Date()`'
+date: 'Last update: `r Sys.Date()`'
 output:
   html_document:
     self_contained: no
@@ -61,7 +61,7 @@ output:
     toc: yes
     widescreen: yes
 font-import: http://fonts.googleapis.com/css?family=Risque
-subtitle: "Diplôme Interuniversitaire en Bioinformatique intégrative (DU-Bii 2019)"
+subtitle: "Formation Shiny à l'Institut Pasteur, 9-10 juillet 2019"
 font-family: Garamond
 transition: linear
 editor_options: 
@@ -73,6 +73,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+******
 ## Introduction
 
 Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement. 
@@ -92,6 +93,7 @@ Pour les exécuter, il suffit d'ouvrir le fichier `app[#]/app.R` dans RStudio et
 Attention, le nom du script R `app.R` est important pour faciliter le déploiement de l'application sur un serveur Shiny. 
 
 
+******
 ## 1. Starting application
 
 Copy, debug and run the first application (app1) presented today.
@@ -125,18 +127,21 @@ shinyApp(ui = ui, server = server)
 Solution: [app1/app1.R](app1/app1.R)
 
 
+******
 ## 2. Bin numbers
 
 Change the application app1 to allow the user to enter the numbers of bins when plotting the histogram
 
 Solution: [app2/app.R](app2/app.R)
 
+******
 ## 3. Server response
 
 Change the application app1 to add some text as a response from server. 
 
 Solution: [app3/app.R](app3/app.R)
 
+******
 ## 4. Mean and standard deviation
 
 Change app1 so that
@@ -148,6 +153,7 @@ Change app1 so that
 Solution: [app4/app.R](app4/app.R)
 
 
+******
 ## 5. Alternative displays
 
 Change app1 so that the user can choose to do a
@@ -156,6 +162,7 @@ histogram or a boxplot
 Solution: [app5/app.R](app5/app.R)
 
 
+******
 ## 6. Do it the way you want it
 
 Just about anything can be made to look the way you want it.
@@ -169,6 +176,7 @@ plotOutput("plot", width = "500px", height = "500px")
 
 Solution: [app6/app.R](app6/app.R)
 
+******
 ## 7. Panel appears and disappears:
 
 An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.
@@ -177,6 +185,7 @@ An ugly feature of our app: the input field Number of bins only makes sense for 
 
 Solution: [app7/app.R](app7/app.R)
 
+******
 ## 8. Predefined data sets
 
 Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
@@ -193,6 +202,7 @@ if (input$dataset == "Newcomb's Speed of Light") {
 Solution: [app8/app.R](app8/app.R)
 
 
+******
 ## 9. File upload
 
 Let the user upload a dataset(a file containing one value per row, no headers) for display.
@@ -219,6 +229,7 @@ server <- function(input, output) {
 ```
 
 
+******
 ## 10. Summary statistics
 
 In the text area we want a table of summary statistics. The idea here is to use R syntax to create a character vector which has the lines of the HTML code.
@@ -243,6 +254,7 @@ output$text <- renderText({
 
 
 
+******
 ## 11. Table presentations
 
 These tables rarely look very good. To change their appearance we need to use cascading style files. The easiest way is to include that in the ui.R.
@@ -252,6 +264,7 @@ Les fonctions d'output `renderDataTable()` et `dataTableOutput() permettent d'af
 Note: ceci fait appel au package `dt` qui gère les tableaux de données.
 
 
+******
 ## 12. Several panels
 
 Often it is a good idea to have several panels to show different things. Say we want to separate the text from the graph.
@@ -268,12 +281,14 @@ mainPanel(
 ```
 
 
+******
 ## 13. Graph displays
 
 Again there are items on the left that only make sense for the graphs, so they should only appear when the Graph panel is selected. Again conditionalPanel to the rescue!
 
  
 
+******
 ## 14. Animation
 
 When generating random data we might want to do this a number of times. Slowly, so one can watch the changes.
@@ -297,13 +312,12 @@ if (input$dataset == "Random") {
 } 
 ```
 
+******
 ## 15. Use the gglot2 library
 
 Now let us draw the graphs with ggplot2. For this purpose, you must add require(ggplot2) on server side and change the render plot function call for histogram and boxplot.
 
- 
-=========
-
+******
 
 
 
