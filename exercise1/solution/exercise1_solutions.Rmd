@@ -73,6 +73,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+## Introduction
+
+Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement. 
+
+A chaque étape, on ajoute un élément d'interactivité.
+
+Les solutions sont fournies dans des fichiers séparés (app1.R, app2.R, ...). Pour les exécuter, il suffit d'ouvrir le fichier app[#].R dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
+
 ## 1. Starting application
 
 Copy, debug and run the first application (app1) presented today.
@@ -158,7 +166,131 @@ An ugly feature of our app: the input field Number of bins only makes sense for 
 
 Solution: [app7.R](app7.R)
 
+## 8. Predefined data sets
 
+Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
+
+```{r eval=FALSE}
+if (input$dataset == "Newcomb's Speed of Light") {
+  source("newcomb.R")
+  return(newcomb)
+}
+```
+ 
+**Your turn: Read the 3 data sets available on github**
+
+
+
+## 9. File upload
+
+Let the user upload a dataset(a file containing one value per row, no headers) for display.
+
+
+```{r eval=FALSE}
+
+... (manque le début)
+
+server <- function(input, output) {
+  data <- reactive({
+      inFile <- input$file
+      
+      if (is.null(inFile)) {
+        x <- rnorm(input$n)
+      } else {
+        
+        x <- read.csv(inFile$datapath)[,1]
+      }
+      return(x)
+  })
+}
+
+```
+
+
+## 10. Summary statistics
+
+In the text area we want a table of summary statistics. The idea here is to use R syntax to create a character vector which has the lines of the HTML code.
+
+```{r eval=FALSE}
+
+output$text <- renderText({
+  x <- data()
+  line <- "<table border=1>"
+  line[2] <- "<tr><th>Sample Size</th>"
+  ...
+  line[4] <- "</table>"
+  line
+})
+
+```
+
+**Alternatives:**
+
+1. Générer une table R et ensuite générer du code HTML avec kable
+2. Utiliser renderDataTable(). C'est l'exercice suivant. 
+
+
+
+## 11. Table presentations
+
+These tables rarely look very good. To change their appearance we need to use cascading style files. The easiest way is to include that in the ui.R.
+
+Les fonctions d'output `renderDataTable()` et `dataTableOutput() permettent d'afficher une table. 
+
+Note: ceci fait appel au package `dt` qui gère les tableaux de données.
+
+
+## 12. Several panels
+
+Often it is a good idea to have several panels to show different things. Say we want to separate the text from the graph.
+
+
+```{r eval=FALSE}
+mainPanel(
+  tablesetPanel(
+    tabPanel("Statistics", )
+    ... (missing part)
+  )
+)
+
+```
+
+
+## 13. Graph displays
+
+Again there are items on the left that only make sense for the graphs, so they should only appear when the Graph panel is selected. Again conditionalPanel to the rescue!
+
+ 
+
+## 14. Animation
+
+When generating random data we might want to do this a number of times. Slowly, so one can watch the changes.
+
+On ui side use :
+
+```
+sliderInput("k","Repeat!",min=1, max=10, value=0,step=1,
+                animate=animationOptions(interval = 500,playButton="Go!")
+         )
+````
+
+on server side use:
+
+```{r eval=FALSE}
+if (input$dataset == "Random") {
+  for (i in 1:input$k) {
+    mu <- input$mu
+  }
+  return(rnorm(input$n,input$mu,input$sig))
+} 
+```
+
+## 14. Use the gglot2 library
+
+Now let us draw the graphs with ggplot2. For this purpose, you must add require(ggplot2) on server side and change the render plot function call for histogram and boxplot.
+
+ 
+=========
 
 
 

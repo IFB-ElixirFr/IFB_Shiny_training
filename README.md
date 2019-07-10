@@ -6,7 +6,15 @@ Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)
 
 ### Diapositives
 
+- [Introduction à la formation](https://tinyurl.com/ifb-shiny19-gslides) (Hélène Chiapello)
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
+- [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
+  - Serveur Shiny de l'Institut Pasteur (Christophe Malabat)
+  - Instancier un serveur Shiny "perso" sur le cloud IFB (Jacques van Helden)
+
+Les documents du cours provenant du SIB (diapositives et exercices)
+sont diffusés sous licence [Creative Commons Attribution-ShareAlike 4.0
+International](https://creativecommons.org/licenses/by-sa/4.0/) (CC-BY-SA 4.0)
 
 ### Exercices
 
