@@ -52,28 +52,35 @@ the bars and plots:
 
 7. **Panel appears and disappears**:
 
-      An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.
+      An ugly feature of our application: the input field Number of
+      bins only makes sense for the histogram, not for the boxplot, so
+      it should not appear when we do a boxplot.
       
-      **Hint:** `conditionalPanel()`
+      **Hint:** use the `conditionalPanel()` function.
 
-8. Predefined data sets
+8. **Access predefined data sets**
 
-    Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
+    a. Let the user choose (using a drop down menu) to either generate the
+    random data or use one of several datafiles available on the server.
+
+    b. Save the data sets in the same folder as app.R, for example in CSV format
+
+    c. We can read the data in the server with a command like
 
 ```
 if(input$dataset=="Newcomb's Speed of Light") {
-
-            source("newcomb.R")
-
-            return(newcomb)
+            x <- read.csv("newcomb.csv")
+            return(x)
 }
 ```
  
-Your turn: Read the 3 data sets available on github
+     github contains 3 datasets that you can use: euros, forbes, newcomb.
 
 
-9. Let the user upload a dataset (a file containing one value per row,
-no headers) for display.
+9. **Dataset upload** Let the user upload its own dataset (a file
+containing one value per row, no headers) for display.
+
+   **Hint**: 
 
 10. Summary statistics:
 
@@ -124,6 +131,7 @@ if(input$dataset=="Random") {
 this purpose, you must add require(ggplot2) on server side and change
 the render plot function call for histogram and boxplot.
 
- 
+15. Other possible tasks: download a file produced by the application.
+
 =========
  
