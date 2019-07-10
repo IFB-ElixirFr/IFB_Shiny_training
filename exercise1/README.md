@@ -76,38 +76,32 @@ if(input$dataset=="Newcomb's Speed of Light") {
  
      github contains 3 datasets that you can use: euros, forbes, newcomb.
 
+9. **Dataset upload**
 
-9. **Dataset upload** Let the user upload its own dataset (a file
-containing one value per row, no headers) for display.
+   a. Let the user upload its own dataset (a file containing one value
+   per row, no headers) so that it is plotted by the app.
 
-   **Hint**: 
+   **Hint**: use the fileInput() function; note that this function does not
+   return the file itself, but a structure containing metadata about the file,
+   including a link that you can then use to open the file (have a look at the
+   help page for more information).
 
-10. Summary statistics:
+   b. Add an output widget that displays the content of the file as a table
 
-    In the text area we want a table of summary statistics.
+   **Hint**: use the tableOutput() widget.
 
-    The idea here is to use R syntax to create a character vector which
-has the lines of the HTML code.
+10. **Several tabs**: Often it is a good idea to have several tabs to
+organize the output when showing different information. Say we want to
+separate the text, the graph and the table display
 
+   **Hint**: look at the tabsetPanel() function.
 
-11. Table presentations: These tables rarely look very good. To change
-their appearance we need to use cascading style files. The easiest way
-is to include that in the ui.R.
+11. **Use another library**: let us draw the graphs with ggplot2
+instead of base R. For this purpose, you must add require(ggplot2) on
+server side and change the render plot function call for histogram and
+boxplot.
 
-
-12. Several panels: Often it is a good idea to have several panels to
-show different things. Say we want to separate the text from the
-graph.
-
- 
-
-13. Graph displays: Again there are items on the left that only make
-sense for the graphs, so they should only appear when the Graph panel
-is selected. Again conditionalPanel to the rescue!
-
- 
-
-14. Animation: When generating random data we might want to do this a
+12. **Animation**: When generating random data we might want to do this a
 number of times. Slowly, so one can watch the changes.
 
 On ui side use :
@@ -127,11 +121,31 @@ if(input$dataset=="Random") {
         } 
 ```
 
-14. Use the gglot2 library: Now let us draw the graphs with ggplot2. For
-this purpose, you must add require(ggplot2) on server side and change
-the render plot function call for histogram and boxplot.
+13. **Conditional widgets**: again, at this point, there are items on
+the left that only make sense in some cases, so they should only
+appear when needed. For example, the graph options should only be present
+when the the Graph tab is selected. Again, conditionalPanel() to the
+rescue!
 
-15. Other possible tasks: download a file produced by the application.
+
+### Additional exercises
+
+14. **Summary statistics**:
+
+    In the text area we want a table of summary statistics.
+
+    The idea here is to use R syntax to create a character vector
+    which has the lines of the HTML code.
+
+15. **Download a file**: let the user download a file produced by the
+application.
+
+16. **Table presentations**: These tables rarely look very good. To change
+their appearance we need to use cascading style files. The easiest way
+is to include that in the ui.R.
+
+17. **Use the plotly or D3 libraries**
+
 
 =========
  
