@@ -400,7 +400,14 @@ div.tocify {
 <h2>Introduction</h2>
 <p>Dans cet exercice, nous décvouvrons progressivement les différents éléments pour construire une interface R Shiny, en partant du plus simple et en élaborant progressivement.</p>
 <p>A chaque étape, on ajoute un élément d’interactivité.</p>
-<p>Les solutions sont fournies dans des fichiers séparés (app1.R, app2.R, …). Pour les exécuter, il suffit d’ouvrir le fichier app[#].R dans RStudio et de cliquer le biouton <strong>Run App</strong> qui apparaît dans le coin supérieur droit de l’éditeur de code.</p>
+<p>Les solutions sont fournies dans des dossiers séparés;</p>
+<ul>
+<li><code>app1/app1.R</code></li>
+<li><code>app2/app2.R</code></li>
+<li><code>app3/app3.R</code></li>
+<li>…</li>
+</ul>
+<p>Pour les exécuter, il suffit d’ouvrir le fichier <code>app[#]/app[#].R</code> dans RStudio et de cliquer le biouton <strong>Run App</strong> qui apparaît dans le coin supérieur droit de l’éditeur de code.</p>
 </div>
 <div id="starting-application" class="section level2">
 <h2>1. Starting application</h2>
@@ -426,17 +433,17 @@ div.tocify {
 <a class="sourceLine" id="cb1-19" data-line-number="19">                   })</a>
 <a class="sourceLine" id="cb1-20" data-line-number="20">}</a>
 <a class="sourceLine" id="cb1-21" data-line-number="21"><span class="kw">shinyApp</span>(<span class="dt">ui =</span> ui, <span class="dt">server =</span> server)</a></code></pre></div>
-<p>Solution: <a href="app1.R">app1.R</a></p>
+<p>Solution: <a href="app1/app1.R">app1/app1.R</a></p>
 </div>
 <div id="bin-numbers" class="section level2">
 <h2>2. Bin numbers</h2>
 <p>Change the application app1 to allow the user to enter the numbers of bins when plotting the histogram</p>
-<p>Solution: <a href="app2.R">app2.R</a></p>
+<p>Solution: <a href="app2/app2.R">app2/app2.R</a></p>
 </div>
 <div id="server-response" class="section level2">
 <h2>3. Server response</h2>
 <p>Change the application app1 to add some text as a response from server.</p>
-<p>Solution: <a href="app3.R">app3.R</a></p>
+<p>Solution: <a href="app3/app3.R">app3/app3.R</a></p>
 </div>
 <div id="mean-and-standard-deviation" class="section level2">
 <h2>4. Mean and standard deviation</h2>
@@ -446,12 +453,12 @@ div.tocify {
 <li>The mean and standard deviation are shown in the mainPanel.</li>
 <li>The user can enter a title for the histogram.</li>
 </ul>
-<p>Solution: <a href="app4.R">app4.R</a></p>
+<p>Solution: <a href="app4/app4.R">app4/app4.R</a></p>
 </div>
 <div id="alternative-displays" class="section level2">
 <h2>5. Alternative displays</h2>
 <p>Change app1 so that the user can choose to do a histogram or a boxplot</p>
-<p>Solution: <a href="app5.R">app5.R</a></p>
+<p>Solution: <a href="app5/app5.R">app5/app5.R</a></p>
 </div>
 <div id="do-it-the-way-you-want-it" class="section level2">
 <h2>6. Do it the way you want it</h2>
@@ -461,13 +468,13 @@ div.tocify {
 <li>Change the aspect ratio of the graph:</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">plotOutput</span>(<span class="st">&quot;plot&quot;</span>, <span class="dt">width =</span> <span class="st">&quot;500px&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;500px&quot;</span>)</a></code></pre></div>
-<p>Solution: <a href="app6.R">app6.R</a></p>
+<p>Solution: <a href="app6/app6.R">app6/app6.R</a></p>
 </div>
 <div id="panel-appears-and-disappears" class="section level2">
 <h2>7. Panel appears and disappears:</h2>
 <p>An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.</p>
 <p><strong>Hint:</strong> <code>conditionalPanel()</code></p>
-<p>Solution: <a href="app7.R">app7.R</a></p>
+<p>Solution: <a href="app7/app7.R">app7/app7.R</a></p>
 </div>
 <div id="predefined-data-sets" class="section level2">
 <h2>8. Predefined data sets</h2>

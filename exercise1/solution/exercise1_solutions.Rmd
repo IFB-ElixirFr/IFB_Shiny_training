@@ -79,7 +79,15 @@ Dans cet exercice, nous décvouvrons progressivement les différents éléments 
 
 A chaque étape, on ajoute un élément d'interactivité.
 
-Les solutions sont fournies dans des fichiers séparés (app1.R, app2.R, ...). Pour les exécuter, il suffit d'ouvrir le fichier app[#].R dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
+Les solutions sont fournies dans des dossiers séparés; 
+
+- `app1/app1.R`
+- `app2/app2.R`
+- `app3/app3.R`
+- ...
+
+
+Pour les exécuter, il suffit d'ouvrir le fichier `app[#]/app[#].R` dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
 
 ## 1. Starting application
 
@@ -111,20 +119,20 @@ shinyApp(ui = ui, server = server)
 
 
 
-Solution: [app1.R](app1.R)
+Solution: [app1/app1.R](app1/app1.R)
 
 
 ## 2. Bin numbers
 
 Change the application app1 to allow the user to enter the numbers of bins when plotting the histogram
 
-Solution: [app2.R](app2.R)
+Solution: [app2/app2.R](app2/app2.R)
 
 ## 3. Server response
 
 Change the application app1 to add some text as a response from server. 
 
-Solution: [app3.R](app3.R)
+Solution: [app3/app3.R](app3/app3.R)
 
 ## 4. Mean and standard deviation
 
@@ -134,14 +142,15 @@ Change app1 so that
 - The mean and standard deviation are shown in the mainPanel.
 - The user can enter a title for the histogram.
 
-Solution: [app4.R](app4.R)
+Solution: [app4/app4.R](app4/app4.R)
+
 
 ## 5. Alternative displays
 
 Change app1 so that the user can choose to do a
 histogram or a boxplot
 
-Solution: [app5.R](app5.R)
+Solution: [app5/app5.R](app5/app5.R)
 
 
 ## 6. Do it the way you want it
@@ -155,7 +164,7 @@ Just about anything can be made to look the way you want it.
 plotOutput("plot", width = "500px", height = "500px")
 ```
 
-Solution: [app6.R](app6.R)
+Solution: [app6/app6.R](app6/app6.R)
 
 ## 7. Panel appears and disappears:
 
@@ -163,8 +172,7 @@ An ugly feature of our app: the input field Number of bins only makes sense for 
 
 **Hint:** `conditionalPanel()`
 
-
-Solution: [app7.R](app7.R)
+Solution: [app7/app7.R](app7/app7.R)
 
 ## 8. Predefined data sets
 
