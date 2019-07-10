@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jacques van Helden" />
 
-<meta name="date" content="2019-07-09" />
+<meta name="date" content="2019-07-10" />
 
 <title>RShiny Exercise 1 - Solutions</title>
 
@@ -391,7 +391,7 @@ div.tocify {
 <h1 class="title toc-ignore">RShiny Exercise 1 - Solutions</h1>
 <h3 class="subtitle">Diplôme Interuniversitaire en Bioinformatique intégrative (DU-Bii 2019)</h3>
 <h4 class="author">Jacques van Helden</h4>
-<h4 class="date">2019-07-09</h4>
+<h4 class="date">2019-07-10</h4>
 
 </div>
 
@@ -472,12 +472,10 @@ div.tocify {
 <div id="predefined-data-sets" class="section level2">
 <h2>8. Predefined data sets</h2>
 <p>Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span>(input<span class="op">$</span>dataset<span class="op">==</span><span class="st">&quot;Newcomb&#39;s Speed of Light&quot;</span>) {</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">            <span class="kw">source</span>(<span class="st">&quot;newcomb.R&quot;</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">            <span class="kw">return</span>(newcomb)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> (input<span class="op">$</span>dataset <span class="op">==</span><span class="st"> &quot;Newcomb&#39;s Speed of Light&quot;</span>) {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">source</span>(<span class="st">&quot;newcomb.R&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">return</span>(newcomb)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">}</a></code></pre></div>
 <p><strong>Your turn: Read the 3 data sets available on github</strong></p>
 </div>
 <div id="file-upload" class="section level2">
@@ -500,7 +498,7 @@ div.tocify {
 <a class="sourceLine" id="cb4-15" data-line-number="15">}</a></code></pre></div>
 </div>
 <div id="summary-statistics" class="section level2">
-<h2>10. Summary statistics:</h2>
+<h2>10. Summary statistics</h2>
 <p>In the text area we want a table of summary statistics. The idea here is to use R syntax to create a character vector which has the lines of the HTML code.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">output<span class="op">$</span>text &lt;-<span class="st"> </span><span class="kw">renderText</span>({</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">  x &lt;-<span class="st"> </span><span class="kw">data</span>()</a>
@@ -525,6 +523,12 @@ div.tocify {
 <div id="several-panels" class="section level2">
 <h2>12. Several panels</h2>
 <p>Often it is a good idea to have several panels to show different things. Say we want to separate the text from the graph.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">mainPanel</span>(</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">tablesetPanel</span>(</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="kw">tabPanel</span>(<span class="st">&quot;Statistics&quot;</span>, )</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="kw">...</span> (missing part)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  )</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">)</a></code></pre></div>
 </div>
 <div id="graph-displays" class="section level2">
 <h2>13. Graph displays</h2>
@@ -538,10 +542,12 @@ div.tocify {
                 animate=animationOptions(interval = 500,playButton=&quot;Go!&quot;)
          )</code></pre>
 <p>on server side use:</p>
-<pre><code>if(input$dataset==&quot;Random&quot;) {
-            for(i in 1:input$k) mu&lt;-input$mu
-            return(rnorm(input$n,input$mu,input$sig))
-        } </code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="cf">if</span> (input<span class="op">$</span>dataset <span class="op">==</span><span class="st"> &quot;Random&quot;</span>) {</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>input<span class="op">$</span>k) {</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    mu &lt;-<span class="st"> </span>input<span class="op">$</span>mu</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  }</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="kw">return</span>(<span class="kw">rnorm</span>(input<span class="op">$</span>n,input<span class="op">$</span>mu,input<span class="op">$</span>sig))</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">} </a></code></pre></div>
 </div>
 <div id="use-the-gglot2-library" class="section level2">
 <h2>14. Use the gglot2 library</h2>

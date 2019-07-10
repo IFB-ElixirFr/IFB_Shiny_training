@@ -171,11 +171,9 @@ Solution: [app7.R](app7.R)
 Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
 
 ```{r eval=FALSE}
-if(input$dataset=="Newcomb's Speed of Light") {
-
-            source("newcomb.R")
-
-            return(newcomb)
+if (input$dataset == "Newcomb's Speed of Light") {
+  source("newcomb.R")
+  return(newcomb)
 }
 ```
  
@@ -209,7 +207,7 @@ server <- function(input, output) {
 ```
 
 
-## 10. Summary statistics:
+## 10. Summary statistics
 
 In the text area we want a table of summary statistics. The idea here is to use R syntax to create a character vector which has the lines of the HTML code.
 
@@ -246,7 +244,17 @@ Note: ceci fait appel au package `dt` qui gère les tableaux de données.
 
 Often it is a good idea to have several panels to show different things. Say we want to separate the text from the graph.
 
- 
+
+```{r eval=FALSE}
+mainPanel(
+  tablesetPanel(
+    tabPanel("Statistics", )
+    ... (missing part)
+  )
+)
+
+```
+
 
 ## 13. Graph displays
 
@@ -268,11 +276,13 @@ sliderInput("k","Repeat!",min=1, max=10, value=0,step=1,
 
 on server side use:
 
-```
-if(input$dataset=="Random") {
-            for(i in 1:input$k) mu<-input$mu
-            return(rnorm(input$n,input$mu,input$sig))
-        } 
+```{r eval=FALSE}
+if (input$dataset == "Random") {
+  for (i in 1:input$k) {
+    mu <- input$mu
+  }
+  return(rnorm(input$n,input$mu,input$sig))
+} 
 ```
 
 ## 14. Use the gglot2 library

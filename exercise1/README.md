@@ -52,21 +52,13 @@ the way you want it.
 
 7. Panel appears and disappears:
 
-    - An ugly feature of our app: the input field Number of bins only makes
-sense for the histogram, not for the boxplot,
-
-    - so it should not appear when we do a boxplot.
-
-    - Hint: conditionalPanel
-
+      An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.
+      
+      **Hint:** `conditionalPanel()`
 
 8. Predefined data sets
 
-    Let us read files on the server files. For this purpose, first we need
-to save the data sets in the same folder as ui.R and server.R, say
-with dump
-
-Then we can read the data in the server with
+    Let us read files on the server files. For this purpose, first we need to save the data sets in the same folder as ui.R and server.R, say with dump. Then we can read the data in the server with
 
 ```
 if(input$dataset=="Newcomb's Speed of Light") {
