@@ -6,7 +6,9 @@ Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)
 
 ### Diapositives
 
+- [Introduction à la formation](https://tinyurl.com/ifb-shiny19-gslides)
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
+- [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides)
 
 ### Exercices
 
