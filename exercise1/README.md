@@ -1,17 +1,16 @@
 ## Exercise 1: build and learn
 
-1. Let us start: Copy, debug and run the first application (app1)
-presented today.
+1. Let us start: copy and run the first application presented today.
 
 ```R
 ui <- fluidPage(
-  titlePanel("Workshop - Example 1 – Basic  Histogram"),
+  titlePanel("Workshop - Example 1 - Basic Histogram"),
   sidebarLayout(
     sidebarPanel(
        numericInput(inputId="n",
                     label="Number of observations",
                     value=1000) ),  
-       mainPanel(plotOutput("plot"))
+       mainPanel(plotOutput(outputId="plot"))
   )
 )
 
@@ -21,36 +20,37 @@ server <- function(input, output) {
                      x })
 
    output$plot <- renderPlot({
-         	        hist(data(), 50, main="",  xlab="x")
+         	        hist(data(), breaks=50, main="",  xlab="x")
                    })
 }
 shinyApp(ui = ui, server = server)
 ```
 
-2. **Bin numbers**: Change the application app1 to allow the user to enter
-the numbers of bins when plotting the histogram
+2. **Bin numbers**: Change the application to allow the user to enter
+the numbers of bins when plotting the histogram.
 
-3. **Server response**: Change the application app1 to add some text as a
-response from server (make sure the text depends on the dataset; for
-example, include the average of the data points)
+3. **Add some text to the output**: Change the application to add some
+text to the output. The text should depend on the dataset; for example,
+indicate the average and standard deviation of the data points.
 
-4. **Mean and standard deviation**: Change app1 so that
+4. **Choose mean and standard deviation**: Change the application so that
 
     - The user can enter different values for the mean and standard deviation. 
     - The mean and standard deviation are shown in the mainPanel.
     - The user can enter a title for the histogram.
 
-5. **Different displays**: Change app1 so that the user can choose to do a
-histogram or a boxplot
+5. **Different displays**: Change the application so that the user can
+choose to do a histogram or a boxplot.
 
-6. **Do it the way you want it**: Just about anything can be made to look
-the way you want it.
+6. **Change the appearance of the widgets**: you can customize the size of
+the bars and plots:
 
-    - change the size of the sidebar: (,width=3)
+    - change the size of the sidebar; the "width" option of the sidebarPanel
+      accepts values between 1 and 12.
     - Change the aspect ratio of the graph:
       plotOutput("plot", width="500px", height = "500px")
 
-7. Panel appears and disappears:
+7. **Panel appears and disappears**:
 
       An ugly feature of our app: the input field Number of bins only makes sense for the histogram, not for the boxplot, so it should not appear when we do a boxplot.
       
