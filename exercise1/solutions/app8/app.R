@@ -80,24 +80,27 @@ server <- function(input, output) {
   
   data <- reactive({
     if (input$dataset == "newcomb") {
+      message("Loading Newcomb dataset")
       x <- list(
-        values = unlist(read.delim("newcomb.tsv")[1]),
+        values = unlist(read.csv("newcomb.csv")[2]),
         main = "Newcomb")
 
     } else if (input$dataset == "forbes") {
+      message("Loading Forbes dataset")
       forbes <- read.csv("forbes.csv") ## Load the forbes data table
-      message("HELLO Forbes, ", input$column)
       x <- list(
         values = forbes[, input$column], ## selecte the user-specified column
         main = paste("Forbes", input$column))
       
 
     } else if (input$dataset == "euros") {
+      message("Loading Euros dataset")
       x <- list(
         values = unlist(read.delim("euros.tsv")[1]),
         main = "Euros")
 
     } else if (input$dataset == "rand") {
+      message("Generating random numbers")
       x <- list(
         values = rnorm(n = input$n, mean = input$mean, sd = input$sd),
         main = input$main)
