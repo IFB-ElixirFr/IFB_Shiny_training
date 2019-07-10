@@ -81,13 +81,16 @@ A chaque étape, on ajoute un élément d'interactivité.
 
 Les solutions sont fournies dans des dossiers séparés; 
 
-- `app1/app1.R`
-- `app2/app2.R`
-- `app3/app3.R`
+- `app1/app.R`
+- `app2/app.R`
+- `app3/app.R`
 - ...
 
 
-Pour les exécuter, il suffit d'ouvrir le fichier `app[#]/app[#].R` dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
+Pour les exécuter, il suffit d'ouvrir le fichier `app[#]/app.R` dans RStudio et de cliquer le biouton **Run App** qui apparaît dans le coin supérieur droit de l'éditeur de code. 
+
+Attention, le nom du script R `app.R` est important pour faciliter le déploiement de l'application sur un serveur Shiny. 
+
 
 ## 1. Starting application
 
@@ -126,13 +129,13 @@ Solution: [app1/app1.R](app1/app1.R)
 
 Change the application app1 to allow the user to enter the numbers of bins when plotting the histogram
 
-Solution: [app2/app2.R](app2/app2.R)
+Solution: [app2/app.R](app2/app.R)
 
 ## 3. Server response
 
 Change the application app1 to add some text as a response from server. 
 
-Solution: [app3/app3.R](app3/app3.R)
+Solution: [app3/app.R](app3/app.R)
 
 ## 4. Mean and standard deviation
 
@@ -142,7 +145,7 @@ Change app1 so that
 - The mean and standard deviation are shown in the mainPanel.
 - The user can enter a title for the histogram.
 
-Solution: [app4/app4.R](app4/app4.R)
+Solution: [app4/app.R](app4/app.R)
 
 
 ## 5. Alternative displays
@@ -150,7 +153,7 @@ Solution: [app4/app4.R](app4/app4.R)
 Change app1 so that the user can choose to do a
 histogram or a boxplot
 
-Solution: [app5/app5.R](app5/app5.R)
+Solution: [app5/app.R](app5/app.R)
 
 
 ## 6. Do it the way you want it
@@ -164,7 +167,7 @@ Just about anything can be made to look the way you want it.
 plotOutput("plot", width = "500px", height = "500px")
 ```
 
-Solution: [app6/app6.R](app6/app6.R)
+Solution: [app6/app.R](app6/app.R)
 
 ## 7. Panel appears and disappears:
 
@@ -172,7 +175,7 @@ An ugly feature of our app: the input field Number of bins only makes sense for 
 
 **Hint:** `conditionalPanel()`
 
-Solution: [app7/app7.R](app7/app7.R)
+Solution: [app7/app.R](app7/app.R)
 
 ## 8. Predefined data sets
 
@@ -180,13 +183,14 @@ Let us read files on the server files. For this purpose, first we need to save t
 
 ```{r eval=FALSE}
 if (input$dataset == "Newcomb's Speed of Light") {
-  source("newcomb.R")
-  return(newcomb)
+  x <- read.csv("newcomb.csv")
+  return(x)
 }
 ```
  
 **Your turn: Read the 3 data sets available on github**
 
+Solution: [app8/app.R](app8/app.R)
 
 
 ## 9. File upload
