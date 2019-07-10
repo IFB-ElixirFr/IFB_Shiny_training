@@ -19,7 +19,7 @@ International](https://creativecommons.org/licenses/by-sa/4.0/) (CC-BY-SA 4.0)
 ### Exercices
 
 - [Exercice 1 : build and run](exercise1)
-- [Solutions de l'exercice 1 : build and run](exercise1/solution/exercise1_solutions.html)
+- [Solutions de l'exercice 1 : build and run](exercise1/solutions/exercise1_solutions.html)
 
 ### Documents
 
