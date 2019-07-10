@@ -297,7 +297,7 @@ if (input$dataset == "Random") {
 } 
 ```
 
-## 14. Use the gglot2 library
+## 15. Use the gglot2 library
 
 Now let us draw the graphs with ggplot2. For this purpose, you must add require(ggplot2) on server side and change the render plot function call for histogram and boxplot.
 
