@@ -34,10 +34,6 @@ server <- function(input, output) {
     paste0("Parameters: ",
            " n = ", input$n, "; bins = ", input$bins) 
   })
-  output$stats <- renderText({
-    paste0("Statistics: ",
-           " mean = ", round(mean(data()),2), "; sd = ", round(sd(data()),2))
-  })
 }
 
 

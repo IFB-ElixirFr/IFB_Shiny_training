@@ -30,8 +30,8 @@ shinyApp(ui = ui, server = server)
 the numbers of bins when plotting the histogram.
 
 3. **Add some text to the output**: Change the application to add some
-text to the output. The text should depend on the dataset; for example,
-indicate the average and standard deviation of the data points.
+text to the output. For example, indicate the number of observations and bins
+defined in parameters.
 
 4. **Choose mean and standard deviation**: Change the application so that
 
@@ -60,21 +60,22 @@ the bars and plots:
 
 8. **Access predefined data sets**
 
-    a. Let the user choose (using a drop down menu) to either generate the
-    random data or use one of several datafiles available on the server.
+    a. Save the data sets in the same folder as app.R
 
-    b. Save the data sets in the same folder as app.R, for example in CSV format
+    `github contains 3 datasets that you can use: euros, forbes, newcomb.`
+
+    b. Let the user choose (using a drop down menu) to either generate the
+    random data or use one of several datafiles.
 
     c. We can read the data in the server with a command like
 
-```
-if(input$dataset=="Newcomb's Speed of Light") {
-            x <- read.csv("newcomb.csv")
-            return(x)
-}
-```
- 
-     github contains 3 datasets that you can use: euros, forbes, newcomb.
+    ```R
+    if(input$dataset=="Newcomb's Speed of Light") {
+          x <- read.csv("newcomb.csv")
+          return(x)
+    }
+    ```
+
 
 9. **Dataset upload**
 
@@ -106,7 +107,7 @@ number of times. Slowly, so one can watch the changes.
 
 On ui side use :
 
-```
+```R
 sliderInput("k","Repeat!",min=1, max=10, value=0,step=1,
                 animate=animationOptions(interval = 500,playButton="Go!")
          )
@@ -114,7 +115,7 @@ sliderInput("k","Repeat!",min=1, max=10, value=0,step=1,
 
 on server side use:
 
-```
+```R
 if(input$dataset=="Random") {
             for(i in 1:input$k) mu<-input$mu
             return(rnorm(input$n,input$mu,input$sig))

@@ -2,8 +2,8 @@ ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic  Histogram"),
   sidebarLayout(
     sidebarPanel(
-      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),
-      
+      width=3,
+      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),      
       numericInput(inputId = "mean",
                    label = "Mean",
                    value = 5), 
@@ -12,12 +12,10 @@ ui <- fluidPage(
                    value = 2), 
       numericInput(inputId = "n",
                    label = "Number of observations",
-                   value = 1000), 
-      
+                   value = 1000),
       radioButtons("plotType", "Plot type:",
                    c("Histogram" = "hist",
                      "Boxplot" = "boxplot")),
-      
       
       # Only show the option "Number of bins" if the plot type is a histogram,
       # since this parameter makes no sense for the other plot type (boxplot)
@@ -30,9 +28,11 @@ ui <- fluidPage(
       
     ),  
     mainPanel(
+      plotOutput("plot", width="500px", height="500px"),
+      textOutput("hello"),
+      textOutput("params"),
       textOutput("mean"),
-      textOutput("sd"),
-      plotOutput("plot") 
+      textOutput("sd")
     )
   )
 )
@@ -42,12 +42,6 @@ server <- function(input, output) {
     x <- rnorm(n = input$n, mean = input$mean, sd = input$sd)
     x })
   
-  output$mean <- renderText({
-    paste0("mean = ", input$mean)
-  })
-  output$sd <- renderText({
-    paste0("sd = ", input$sd)
-  })
   output$plot <- renderPlot({
     if (input$plotType == "hist") {
       hist(data(), input$bins, xlab = "x", main = input$main, 
@@ -59,6 +53,23 @@ server <- function(input, output) {
     }
   })
   
+  output$hello <- renderText({
+    "Random histogram"
+  })
+  output$params <- renderText({
+    if (input$plotType == "hist") {
+      paste0("Parameters: ",
+             " n = ", input$n, "; bins = ", input$bins)
+    } else {
+      paste0("Parameters: n = ", input$n)
+    }
+  })
+  output$mean <- renderText({
+    paste0("Mean = ", input$mean)
+  })
+  output$sd <- renderText({
+    paste0("Sd = ", input$sd)
+  })
   
 }
 

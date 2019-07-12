@@ -2,6 +2,8 @@ ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic  Histogram"),
   sidebarLayout(
     sidebarPanel(
+      width=3,
+      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),
       numericInput(inputId = "mean",
                    label = "Mean",
                    value = 5), 
@@ -16,14 +18,14 @@ ui <- fluidPage(
                    value = 25),
       radioButtons("plottype", "Plot type:",
                    c("Histogram" = "hist",
-                     "Boxplot" = "boxplot")),
-      
-      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution")
+                     "Boxplot" = "boxplot"))      
       ),  
     mainPanel(
+      plotOutput("plot", width = "500px", height = "500px"),
+      textOutput("hello"),
+      textOutput("params"),
       textOutput("mean"),
-      textOutput("sd"),
-      plotOutput("plot", width = "600px", height = "300px")
+      textOutput("sd")
     )
   )
 )
@@ -33,12 +35,6 @@ server <- function(input, output) {
     x <- rnorm(n = input$n, mean = input$mean, sd = input$sd)
     x })
 
-  output$mean <- renderText({
-    paste0("mean = ", input$mean)
-  })
-  output$sd <- renderText({
-    paste0("sd = ", input$sd)
-  })
   output$plot <- renderPlot({
     if (input$plottype == "hist") {
       hist(data(), input$bins, xlab = "x", main = input$main, 
@@ -49,8 +45,20 @@ server <- function(input, output) {
       boxplot(data(), xlab = "x", main = input$main)
     }
   })
-  
-  
+
+  output$hello <- renderText({
+    "Random histogram"
+  })
+  output$params <- renderText({
+    paste0("Parameters: ",
+           " n = ", input$n, "; bins = ", input$bins)
+  })
+  output$mean <- renderText({
+    paste0("Mean = ", input$mean)
+  })
+  output$sd <- renderText({
+    paste0("Sd = ", input$sd)
+  })  
 }
 
 

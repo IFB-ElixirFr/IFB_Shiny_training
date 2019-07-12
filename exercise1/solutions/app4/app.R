@@ -2,6 +2,7 @@ ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic  Histogram"),
   sidebarLayout(
     sidebarPanel(
+      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),
       numericInput(inputId = "mean",
                    label = "Mean",
                    value = 5), 
@@ -13,13 +14,14 @@ ui <- fluidPage(
                    value = 1000), 
       numericInput(inputId = "bins",
                    label = "Number of bins",
-                   value = 25),
-      textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution")
-      ),  
+                   value = 25)
+    ),
     mainPanel(
+      plotOutput("plot"),
+      textOutput("hello"),
+      textOutput("params"),
       textOutput("mean"),
-      textOutput("sd"),
-      plotOutput("plot") 
+      textOutput("sd")
     )
   )
 )
@@ -29,17 +31,24 @@ server <- function(input, output) {
     x <- rnorm(n = input$n, mean = input$mean, sd = input$sd)
     x })
 
-  output$mean <- renderText({
-    paste0("mean = ", input$mean)
-  })
-  output$sd <- renderText({
-    paste0("sd = ", input$sd)
-  })
   output$plot <- renderPlot({
     hist(data(), input$bins, xlab = "x", main = input$main); 
     abline(v = input$mean, col = "blue", lwd = 2)
   })
-  
+
+  output$hello <- renderText({
+    "Random histogram"
+  })
+  output$params <- renderText({
+    paste0("Parameters: ",
+           " n = ", input$n, "; bins = ", input$bins)
+  })
+  output$mean <- renderText({
+    paste0("Mean = ", input$mean)
+  })
+  output$sd <- renderText({
+    paste0("Sd = ", input$sd)
+  })
   
 }
 
