@@ -1,6 +1,6 @@
-## Exercise 1: build and learn
+## Exercise 1: Build and learn
 
-1. Let us start: copy and run the first application presented today.
+1. **Let us start**: copy and run the first application presented today.
 
 ```R
 ui <- fluidPage(
