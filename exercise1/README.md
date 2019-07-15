@@ -138,12 +138,12 @@ rescue!
     The idea here is to use R syntax to create a character vector
     which has the lines of the HTML code.
 
-15. **Download a file**: let the user download a file produced by the
-application.
-
-16. **Table presentations**: These tables rarely look very good. To change
+15. **Table presentations**: These tables rarely look very good. To change
 their appearance we need to use cascading style files. The easiest way
 is to include that in the ui.R.
+
+16. **Download a file**: let the user download a file produced by the
+application.
 
 17. **Use the plotly or D3 libraries**
 
