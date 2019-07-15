@@ -1,4 +1,5 @@
 ui <- fluidPage(
+  includeCSS("styles.css"),
   titlePanel("Workshop - Example 1 – Basic Histogram"),
   sidebarLayout(
     sidebarPanel(
@@ -57,7 +58,6 @@ ui <- fluidPage(
         textInput(inputId = "main", label = "Plot title", value = "My data sampling distribution")
       ),
 
-
       ## Choose the plot type between histogram and box plot
       conditionalPanel(
         condition = "input.tabs == 'plot'",
@@ -72,6 +72,10 @@ ui <- fluidPage(
         numericInput(inputId = "bins",
                      label = "Number of bins",
                      value = 25, width = "150px")      
+      ),
+      conditionalPanel(
+        condition = "input.tabs == 'plot'",
+        downloadButton('downloadPlot', 'Download Plot')
       )
     ),  
     
@@ -86,6 +90,8 @@ ui <- fluidPage(
                  tableOutput("datatable") # Panel to display the table
         ),
         tabPanel("Summary", value="summary",
+                 uiOutput("title"),
+                 uiOutput("summary"),
                  textOutput("hello"), # Panel to display the title
                  textOutput("params"), # Panel to display the parameters
                  textOutput("mean"), # Panel to display the standard deviation 
@@ -149,28 +155,72 @@ server <- function(input, output) {
     
   })
 
-  
-  ## Draw the plot
-  output$plot <- renderPlot({    
+  plot <- reactive({
     if (input$plotType == "hist") {
       ## Histogram
-      ggplot(as.data.frame(data()$values), aes(x=data()$values)) + 
+      ggplot(as.data.frame(data()$values), aes(x=data()$values)) +
       geom_histogram(bins=input$bins, color="black", fill="white") +
       geom_vline(aes(xintercept=input$mean), color="blue", linetype="dashed", size=1) +
       labs(title=data()$main, x="x")
     } else if (input$plotType == "boxplot") {
       ## Boxplot
-      ggplot(as.data.frame(data()$values), aes(y=data()$values)) + 
+      ggplot(as.data.frame(data()$values), aes(y=data()$values)) +
       geom_boxplot() +
       labs(title=data()$main, x="x", y="")
     }
   })
 
+  # Download PNG file for the plot
+  output$downloadPlot <- downloadHandler(
+    filename = function() { paste0(data()$main, " ", input$plotType, '.png', sep='') },
+    content = function(file) {
+      png(file)
+      print(plot())
+      dev.off()
+    }
+  )
+
+  
+  ## Draw the plot
+  output$plot <- renderPlot({    
+    plot()
+  })
+
   output$datatable <- renderTable({
-      data()$values
+    data()$values
+  })
+
+  output$title <- renderUI(HTML("<h4>", data()$main,"</h4>"))
+  ## Display a HTML summary table of parameters and statistics
+  output$summary <- renderUI({
+    if (input$dataset == "rand") {
+      if (input$plotType == "hist") {
+        params_header <- HTML("<th>Sample size</th><th>Bins</th>")
+        params_raw <- HTML("<td>", input$n,"</td><td>", input$bins,"</td>")
+      } else {
+        params_header <- HTML("<th>Sample Size</th>")
+        params_raw <- HTML("<td>", input$n,"</td>")
+      }
+    } else {
+      if (input$plotType == "hist") {
+        params_header <- HTML("<th>Bins</th>")
+        params_raw <- HTML("<td>", input$bins,"</td>")
+      }
+    }
+    HTML("<table border=1>
+      <tr>", params_header,"
+        <th>Mean</th>
+        <th>Standard deviation</th>
+      </tr>
+      <tr>", params_raw,"
+        <td>", signif(digits = 3, mean(data()$values)),"</td>
+        <td>", signif(digits = 3, sd(data()$values)),"</td>
+      </tr>
+    </table><br>")
   })
 
   output$hello <- renderText(data()$main)
+  ## Display the number of observation and bins
   output$params <- renderText({
     if (input$dataset == "rand") {
       if (input$plotType == "hist") {
@@ -185,6 +235,7 @@ server <- function(input, output) {
       }
     }
   })
+
   ## Display the user-specified mean for random sampling 
   output$mean <- renderText({
     paste0("mean = ", signif(digits = 3, mean(data()$values)))
