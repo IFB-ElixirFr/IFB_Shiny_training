@@ -3,16 +3,18 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       width=3,      
-      ## Choose the data type between 4 options
+      ## Choose the data type between 5 options
       ## - random number sampling 
       ## - Newcomb dataset (loaded from file)
       ## - Euros dataset (loaded from file)
       ## - Forbes dataset (loaded from file)
+      ## - User own dataset (loaded from file)
       selectInput("dataset", "Data type",  
                   c("Random numbers" = "rand",
                     "Newcomb's Speed of Light" = "newcomb",
                     "Euros" = "euros",
-                    "Forbes" = "forbes"
+                    "Forbes" = "forbes",
+                    "My own dataset" = "mydata"
                   ), 
                   multiple = FALSE, selectize = TRUE, width = "300px"),
       
@@ -31,7 +33,7 @@ ui <- fluidPage(
       ## Display the options of random number sampling only if
       ## the user has selected "rand" in the dataset option. 
       conditionalPanel(
-        condition = "input.dataset == 'rand'",
+        condition = "input.dataset == 'rand' && input.tabs != 'table'",
         textInput(inputId = "main", label = "Plot title", value = "Random sampling distribution"),
         numericInput(inputId = "mean",
                      label = "Mean",
@@ -41,18 +43,32 @@ ui <- fluidPage(
                      value = 2, width = "200px"), 
         numericInput(inputId = "n",
                      label = "Number of observations",
-                     value = 1000, width = "200px")
-       ),     
+                     value = 1000, width = "200px"),
+        sliderInput("k","Repeat!",min=1, max=10, value=0,step=1,
+                    animate=animationOptions(interval = 800,playButton="Go!")
+        )
+      ),     
+      
+      ## Display the file input and the title panel only if
+      ## the user want to use his dataset. 
+      conditionalPanel(
+        condition = "input.dataset == 'mydata'",
+        fileInput(inputId = "myfile", label = "Upload your data (one value per row)"),
+        textInput(inputId = "main", label = "Plot title", value = "My data sampling distribution")
+      ),
+
 
       ## Choose the plot type between histogram and box plot
-      radioButtons("plotType", "Plot type:",
-                   c("Histogram" = "hist",
-                     "Boxplot" = "boxplot")),
-      
+      conditionalPanel(
+        condition = "input.tabs == 'plot'",
+        radioButtons("plotType", "Plot type:",
+                     c("Histogram" = "hist",
+                     "Boxplot" = "boxplot"))
+      ),
       # Only show the option "Number of bins" if the plot type is an histogram,
       # since this parameter makes no sense for the other plot type (boxplot)
       conditionalPanel(
-        condition = "input.plotType == 'hist'",
+        condition = "input.plotType == 'hist' && input.tabs != 'table'",
         numericInput(inputId = "bins",
                      label = "Number of bins",
                      value = 25, width = "150px")      
@@ -61,16 +77,28 @@ ui <- fluidPage(
     
     ## Define the output panel
     mainPanel(
-      plotOutput("plot", height="500px", width="500px"),  # Panel to display the plot
-      textOutput("hello"),
-      textOutput("params"), # Panel to display the parameters
-      textOutput("mean"), # Panel to display the standard deviation 
-      textOutput("sd") # Panel to display the mean
+      tabsetPanel(
+        id = "tabs",
+        tabPanel("Plot", value="plot",
+                 plotOutput("plot", height="500px", width="500px") # Panel to display the plot
+        ),
+        tabPanel("Table", value="table",
+                 tableOutput("datatable") # Panel to display the table
+        ),
+        tabPanel("Summary", value="summary",
+                 textOutput("hello"), # Panel to display the title
+                 textOutput("params"), # Panel to display the parameters
+                 textOutput("mean"), # Panel to display the standard deviation 
+                 textOutput("sd") # Panel to display the mean
+        )
+      )
     )
   )
 )
 
 server <- function(input, output) {
+
+  require(ggplot2)
   
   data <- reactive({
     if (input$dataset == "newcomb") {
@@ -94,9 +122,24 @@ server <- function(input, output) {
 
     } else if (input$dataset == "rand") {
       message("Generating random numbers")
+      for(i in 1:input$k) mu<-input$mean
       x <- list(
         values = rnorm(n = input$n, mean = input$mean, sd = input$sd),
         main = input$main)
+
+    } else if (input$dataset == "mydata") {
+      message("Loading your own dataset")
+      inFile <- input$myfile
+      if (is.null(inFile)) {
+        x <- list(
+          values = rnorm(input$n),
+          main = input$main)
+      } else {
+        x <- list(
+          values = read.csv(inFile$datapath, header=FALSE)[,1],
+          main = input$main)
+      }
+      return(x)      
       
     } else {
       stop("Invalid dataset")
@@ -108,23 +151,26 @@ server <- function(input, output) {
 
   
   ## Draw the plot
-  output$plot <- renderPlot({
-    
+  output$plot <- renderPlot({    
     if (input$plotType == "hist") {
-      ## Histogrram
-      hist(data()$values, input$bins, xlab = "x", main = data()$main, 
-           col = "#BBDDEE", las = 1); 
-      abline(v = input$mean, col = "blue", lwd = 2)
-      
+      ## Histogram
+      ggplot(as.data.frame(data()$values), aes(x=data()$values)) + 
+      geom_histogram(bins=input$bins, color="black", fill="white") +
+      geom_vline(aes(xintercept=input$mean), color="blue", linetype="dashed", size=1) +
+      labs(title=data()$main, x="x")
     } else if (input$plotType == "boxplot") {
       ## Boxplot
-      boxplot(data()$values, xlab = "x", main = data()$main)
+      ggplot(as.data.frame(data()$values), aes(y=data()$values)) + 
+      geom_boxplot() +
+      labs(title=data()$main, x="x", y="")
     }
   })
 
-  output$hello <- renderText({
-    data()$main
+  output$datatable <- renderTable({
+      data()$values
   })
+
+  output$hello <- renderText(data()$main)
   output$params <- renderText({
     if (input$dataset == "rand") {
       if (input$plotType == "hist") {

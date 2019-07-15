@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+th, td {
+  height: 50px;
+  text-align: center;
+}
+th {
+  background-color: #C0C0C0;
+}
+h4 {
+  text-decoration: underline;
+}

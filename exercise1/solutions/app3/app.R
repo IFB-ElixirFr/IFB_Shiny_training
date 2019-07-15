@@ -12,7 +12,8 @@ ui <- fluidPage(
     mainPanel(
       plotOutput("plot"), 
       textOutput("hello"),
-      textOutput("params")
+      textOutput("params"),
+      textOutput("stats")
     )
   )
 )
@@ -31,7 +32,7 @@ server <- function(input, output) {
   })
   output$params <- renderText({
     paste0("Parameters: ",
-           " n = ", input$n, "; bins: ", input$bins) 
+           " n = ", input$n, "; bins = ", input$bins) 
   })
 }
 
