@@ -1,16 +1,16 @@
-## Mardi 9 Juillet
+## Jeudi 12 septembre
 
 
 | De | à | Sujet | 
 |----------|--------|-------------------------------------------------------|
-| 10:00 | 11:30 |  Introduction ; ma première application Shiny |
-| 11:30 | 11:45  | Pause |
-| 11:45 | 13:30  | Exercices (session 1) |
-| 13:30 | 14:30  | Déjeuner |
-| 14:30 | 16:00  | Interfaces utilisateur avec Shiny |
-| 16:00 | 16:15  | Pause |
-| 16:15 | 17:30  | Exercices (session 2) |
-| 17:30 | 18:00  | Déploiement d'application en pratique; conclusions |
+| 09:30 | 09:45  | Accueil et tour de table |
+| 09:45 | 10:45  | Introduction |
+| 10:45 | 11:00  | Pause |
+| 11:00 | 13:00  | Ma première application Shiny |
+| 13:00 | 14:00  | Déjeuner |
+| 14:00 | 15:15  | Exercices (session 1) |
+| 15:15 | 15:30  | Pause |
+| 15:30 | 17:30  | Exercices (session 2) |
 
  
 ## Mercredi 10 Juillet
@@ -18,12 +18,11 @@
 
 | De | à | Sujet | 
 |----------|--------|-------------------------------------------------------|
-| 8:30 | 9:30 | Bilan des évaluations des participants et discussions sur les points d'amélioration. |
-| 9:30 | 10:30 | Travail sur le matériel de cours (diapos, exercices) |
+| 9:30 | 10:30 | Retour sur la première journée, bilan des exercices |
 | 10:30 | 10:45 | Pause |
-| 10:45 | 12:00 | Travail sur le matériel de cours (diapos, exercices) |
+| 10:45 | 12:00 | Déploiement d'application Shiny (cours et exercice pratique) |
 | 12:00 | 13:00 | Déjeuner |
-| 13:00 | 14:30 | Ecriture d’un guide pour les formateurs avec déroulé pédagogique |
-| 14;30 | 14:45 | Pause|
-| 14:45 | 15:45 | Partage d’expériences sur le déploiement d’applications avec R-Shiny |
-| 15:45 | 16:30 | Conclusion et perspectives |
+| 13:00 | 15:00 | BYOS (Bring Your Own Script) - adaptation de script personnel en interface shiny (session 1)|
+| 15:00 | 15:15 | Pause|
+| 15:15 | 16:00 | BYOS (Bring Your Own Script) - adaptation de script personnel en interface shiny (session 2)|
+| 15:45 | 16:30 | Bilan deuxième journée et conclusion du cours. |
