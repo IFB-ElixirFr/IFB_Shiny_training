@@ -18,7 +18,7 @@
 
 | De | à | Sujet | 
 |----------|--------|-------------------------------------------------------|
-| 9:30 | 10:30 | Retour sur la première journée, bilan des exercices |
+| 09:30 | 10:30 | Retour sur la première journée, bilan des exercices |
 | 10:30 | 10:45 | Pause |
 | 10:45 | 12:00 | Déploiement d'application Shiny (cours et exercice pratique) |
 | 12:00 | 13:00 | Déjeuner |
