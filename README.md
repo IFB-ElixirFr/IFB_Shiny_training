@@ -1,12 +1,15 @@
 # Formation au package R-Shiny
 
-Cours organisé en partenariat entre le [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/) et l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr). 
+Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr) avec l'aide du [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/).
+- 1ère édition : 9-10 juillet 2019, Institut Pasteur
+- 2ème édition : 12-13 septembre 2019, Institut Pasteur
 
 ## Matériel de cours
 
 ### Diapositives
 
-- [Introduction à la formation](https://tinyurl.com/ifb-shiny19-gslides) (Hélène Chiapello)
+- [Introduction à la formation](https://docs.google.com/presentation/d/1q22mKowt5Vr0oL-oUE4hETiuzr0KHoV5cD8RdK_YEJo/edit?usp=sharing) (Hélène Chiapello)
+## a mettre à jour
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
 - [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
   - Serveur Shiny de l'Institut Pasteur (Christophe Malabat)
@@ -28,7 +31,7 @@ International](https://creativecommons.org/licenses/by-sa/4.0/) (CC-BY-SA 4.0)
 
 ## Lieu et date
 
-La formation aura lieue du mardi 9 juillet 10h00 (accueil à 9h30) au mercredi 10 juillet 16h30 à l'[Institut Pasteur](https://www.pasteur.fr/fr) (salle de formation Yersin), [28 rue du docteur Roux, 75015 Paris](https://goo.gl/maps/jqzqS84cDSLY4CVEA).
+La formation aura lieue du jeudi 12 septembre 9h30 (accueil à 9h00) au vendredi 13 septembre 16h30 à l'[Institut Pasteur](https://www.pasteur.fr/fr) (salle de formation Yersin), [28 rue du docteur Roux, 75015 Paris](https://goo.gl/maps/jqzqS84cDSLY4CVEA).
 
 > **Important : vous devez vous munir d'une pièce d'identité et passer impérativement par l'accueil à votre arrivée (prévoir au minimum 15 min d'avance).**
 
