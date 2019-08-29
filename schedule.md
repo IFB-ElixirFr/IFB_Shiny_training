@@ -1,4 +1,4 @@
-## Jeudi 12 septembre
+## Jeudi 12 Septembre
 
 
 | De | à | Sujet | 
@@ -13,7 +13,7 @@
 | 15:30 | 17:30  | Exercices (session 2) |
 
  
-## Mercredi 10 Juillet
+## Vendredi 13 Septembre
 
 
 | De | à | Sujet | 
