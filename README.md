@@ -1,15 +1,15 @@
 # Formation au package R-Shiny
 
 Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr) avec l'aide du [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/).
-- 1ère édition : 9-10 juillet 2019, Institut Pasteur
-- 2ème édition : 12-13 septembre 2019, Institut Pasteur
+- 1ère édition : 9-10 juillet 2019, Institut Pasteur (formateur : Frédéric Schütz)
+- 2ème édition : 12-13 septembre 2019, Institut Pasteur (formateurs : Christophe Malabat et Cédric Midoux)
 
-## Matériel de cours
+## Matériel de cours :  a mettre à jour !!!
 
 ### Diapositives
 
 - [Introduction à la formation](https://docs.google.com/presentation/d/1q22mKowt5Vr0oL-oUE4hETiuzr0KHoV5cD8RdK_YEJo/edit?usp=sharing) (Hélène Chiapello)
-## a mettre à jour
+##
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
 - [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
   - Serveur Shiny de l'Institut Pasteur (Christophe Malabat)
