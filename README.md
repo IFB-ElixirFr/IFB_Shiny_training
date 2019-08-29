@@ -4,12 +4,12 @@ Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.f
 - 1ère édition : 9-10 juillet 2019, Institut Pasteur (formateur : Frédéric Schütz)
 - 2ème édition : 12-13 septembre 2019, Institut Pasteur (formateurs : Christophe Malabat et Cédric Midoux)
 
-## Matériel de cours :  a mettre à jour !!!
+## Matériel de cours :  section à mettre à jour !!!
 
 ### Diapositives
 
 - [Introduction à la formation](https://docs.google.com/presentation/d/1q22mKowt5Vr0oL-oUE4hETiuzr0KHoV5cD8RdK_YEJo/edit?usp=sharing) (Hélène Chiapello)
-##
+
 - [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
 - [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
   - Serveur Shiny de l'Institut Pasteur (Christophe Malabat)
@@ -57,16 +57,11 @@ Important : si vous souhaitez assister uniquement au premier jour de la formatio
 
 ## Organisation
 
-La formation s’organise en deux temps :
- 
-- Premier jour : Formation au package R-Shiny et aux outils de base permettant de construire une application web et de déployer un serveur R-Shiny 
-- Deuxième jour : Construction de supports de formations et de matériel pédagogique partagés par les plateformes IFB sur le mode hackathon  
-
 Cliquez ici pour le **[Programme détaillé](schedule.md)**
 
 ## Organisateurs
  
-- IFB : Hélène Chiapello, Yoursra Mahmah
+- IFB : Hélène Chiapello, Yoursra Mahmah, Jacques van Helden
 - Hub de Bioinformatique et Biostatistique de l'I. Pasteur : Christophe Malabat
 - Plateforme Migale de l'Inra : Cédric Midoux
 - SIB :  Frédéric Schütz
