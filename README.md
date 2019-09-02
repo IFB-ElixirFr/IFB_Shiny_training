@@ -5,14 +5,14 @@ Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.f
 - 2ème édition : 12-13 septembre 2019, Institut Pasteur (formateurs : Christophe Malabat et Cédric Midoux)
 
 ## Matériel de cours :  section à mettre à jour !!!
-
+Contributeurs : F. Schütz, C. Midoux, C. Malabat, J. van Helden
 ### Diapositives
 
 - [Introduction à la formation](https://docs.google.com/presentation/d/1q22mKowt5Vr0oL-oUE4hETiuzr0KHoV5cD8RdK_YEJo/edit?usp=sharing) (Hélène Chiapello)
 
-- [Introduction à RShiny](slides/20190709-Shiny-print.pdf) (Frédéric Shütz)
+
 - [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
-  - Serveur Shiny de l'Institut Pasteur (Christophe Malabat)
+  - Serveur Shin de l'Institut Pasteur (Christophe Malabat)
   - Instancier un serveur Shiny "perso" sur le cloud IFB (Jacques van Helden)
 
 Les documents du cours provenant du SIB (diapositives et exercices)
