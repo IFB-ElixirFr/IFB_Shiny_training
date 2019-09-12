@@ -8,12 +8,7 @@ Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.f
 Contributeurs : F. Schütz, C. Midoux, C. Malabat, J. van Helden
 ### Diapositives
 
-- [Introduction à la formation](https://docs.google.com/presentation/d/1q22mKowt5Vr0oL-oUE4hETiuzr0KHoV5cD8RdK_YEJo/edit?usp=sharing) (Hélène Chiapello)
-
-
-- [Solutions de déploiement](https://tinyurl.com/ifb-shiny19-gslides) 
-  - Serveur Shin de l'Institut Pasteur (Christophe Malabat)
-  - Instancier un serveur Shiny "perso" sur le cloud IFB (Jacques van Helden)
+- [Introduction à R Shiny](https://github.com/IFB-ElixirFr/IFB_Shiny_training/blob/master/slides/Formation_Shiny_20190912.pptx?raw=true)
 
 Les documents du cours provenant du SIB (diapositives et exercices)
 sont diffusés sous licence [Creative Commons Attribution-ShareAlike 4.0
