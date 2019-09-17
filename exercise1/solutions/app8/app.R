@@ -1,3 +1,5 @@
+library(shiny)
+
 ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic Histogram"),
   sidebarLayout(
@@ -89,7 +91,7 @@ server <- function(input, output) {
     } else if (input$dataset == "euros") {
       message("Loading Euros dataset")
       x <- list(
-        values = unlist(read.delim("euros.tsv")[1]),
+        values = unlist(read.csv("euros.csv")[2]),
         main = "Euros")
 
     } else if (input$dataset == "rand") {
@@ -111,7 +113,7 @@ server <- function(input, output) {
   output$plot <- renderPlot({
     
     if (input$plotType == "hist") {
-      ## Histogrram
+      ## Histogram
       hist(data()$values, input$bins, xlab = "x", main = data()$main, 
            col = "#BBDDEE", las = 1); 
       abline(v = input$mean, col = "blue", lwd = 2)

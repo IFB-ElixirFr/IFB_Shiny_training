@@ -1,3 +1,5 @@
+library(shiny)
+
 ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic  Histogram"),
   sidebarLayout(
