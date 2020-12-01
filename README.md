@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/290853092.svg)](https://zenodo.org/badge/latestdoi/290853092)
+[![DOI](https://zenodo.org/badge/195837783.svg)](https://zenodo.org/badge/latestdoi/195837783)
 
 # Formation au package R-Shiny
 
