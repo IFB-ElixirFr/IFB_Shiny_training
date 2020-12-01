@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/290853092.svg)](https://zenodo.org/badge/latestdoi/290853092)
+
 # Formation au package R-Shiny
 
 Cours organisé par l'[Institut Français de Bioinformatique (IFB)](http://www.france-bioinformatique.fr) avec l'aide du [Swiss Institute of Bioinformatics (SIB)](https://www.sib.swiss/).
