@@ -117,8 +117,8 @@ on server side use:
 
 ```R
 if(input$dataset=="Random") {
-            for(i in 1:input$k) mu<-input$mu
-            return(rnorm(input$n,input$mu,input$sig))
+            for(i in 1:input$k)
+            return(rnorm(input$n,input$mean,input$sd))
         } 
 ```
 

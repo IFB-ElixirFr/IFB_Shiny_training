@@ -1,3 +1,6 @@
+library(shiny)
+library(DT)
+
 ui <- fluidPage(
   titlePanel("Workshop - Example 1 – Basic Histogram"),
   sidebarLayout(
@@ -77,7 +80,7 @@ ui <- fluidPage(
       textOutput("params"), # Panel to display the parameters
       textOutput("mean"), # Panel to display the standard deviation 
       textOutput("sd"), # Panel to display the mean
-      tableOutput("datatable") # Panel to display the table
+      dataTableOutput("datatable") # Panel to display the table
     )
   )
 )
@@ -101,7 +104,7 @@ server <- function(input, output) {
     } else if (input$dataset == "euros") {
       message("Loading Euros dataset")
       x <- list(
-        values = unlist(read.delim("euros.tsv")[1]),
+        values = unlist(read.csv("euros.csv")[2]),
         main = "Euros")
 
     } else if (input$dataset == "rand") {
@@ -147,9 +150,11 @@ server <- function(input, output) {
     }
   })
 
-  output$datatable <- renderTable({
-      data()$values
-  })
+  output$datatable <- renderDataTable(
+      data.frame(data()$values),
+      options = list(
+          pageLength = 20)
+  )
 
   output$hello <- renderText(data()$main)
   output$params <- renderText({

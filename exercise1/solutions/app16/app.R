@@ -1,3 +1,6 @@
+library(shiny)
+library(DT)
+
 ui <- fluidPage(
   includeCSS("styles.css"),
   titlePanel("Workshop - Example 1 – Basic Histogram"),
@@ -87,7 +90,7 @@ ui <- fluidPage(
                  plotOutput("plot", height="500px", width="500px") # Panel to display the plot
         ),
         tabPanel("Table", value="table",
-                 tableOutput("datatable") # Panel to display the table
+                 dataTableOutput("datatable") # Panel to display the table
         ),
         tabPanel("Summary", value="summary",
                  uiOutput("title"),
@@ -123,12 +126,12 @@ server <- function(input, output) {
     } else if (input$dataset == "euros") {
       message("Loading Euros dataset")
       x <- list(
-        values = unlist(read.delim("euros.tsv")[1]),
+        values = unlist(read.csv("euros.csv")[2]),
         main = "Euros")
 
     } else if (input$dataset == "rand") {
       message("Generating random numbers")
-      for(i in 1:input$k) mu<-input$mean
+      for(i in 1:input$k)
       x <- list(
         values = rnorm(n = input$n, mean = input$mean, sd = input$sd),
         main = input$main)
@@ -174,7 +177,7 @@ server <- function(input, output) {
   output$downloadPlot <- downloadHandler(
     filename = function() { paste0(data()$main, " ", input$plotType, '.png', sep='') },
     content = function(file) {
-      png(file)
+      png(file) # Use pdf(file) to export in a PDF format (and modify extension in the filename)
       print(plot())
       dev.off()
     }
@@ -186,9 +189,11 @@ server <- function(input, output) {
     plot()
   })
 
-  output$datatable <- renderTable({
-    data()$values
-  })
+  output$datatable <- renderDataTable(
+      data.frame(data()$values),
+      options = list(
+          pageLength = 20)
+  )
 
   output$title <- renderUI(HTML("<h4>", data()$main,"</h4>"))
   ## Display a HTML summary table of parameters and statistics
